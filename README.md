@@ -22,6 +22,11 @@ cconst avatarSelector = new AvatarSelector(targetEl, width, width);
 avatarSelector.addEventListener(AvatarSelector.imageAvailable, imageAvailable);
 avatarSelector.addEventListener(AvatarSelector.imageUpdated, imageUpdated);
 
+// get the image data
+const image = avatarSelector.getImageData();
+
+// apply it to an IMG tag
+document.querySelector("img").src = image;
 ```
 
 # EVENTS
