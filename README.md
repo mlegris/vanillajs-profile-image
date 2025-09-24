@@ -1,10 +1,10 @@
-# COVER
-![alt text](https://blog.obviousleap.co/wp-content/uploads/2025/09/cover_image-1.jpg "cover image")
-
 # DESCRIPTION
 This is a Vanilla JS Component to allow you to select an image (drag & drop / select file), crop it to a square and allow the user to move (mouse + touch) it before cropping; and save it to your app using api calls.
 
 [You can see it in action here.](https://plnkr.co/plunk/dsFhprkuTFIz1X1k) Please note that it manipulates images in javascript and if you upload big images it can be slow.
+
+# SCREENSHOTS
+![alt text](https://blog.obviousleap.co/wp-content/uploads/2025/09/cover_image-1.jpg "cover image")
 
 # USAGE
 ```javascript
