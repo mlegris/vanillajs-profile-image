@@ -1,3 +1,6 @@
+# COVER
+![alt text](https://blog.obviousleap.co/wp-content/uploads/2025/09/cover_image-1.jpg "cover image")
+
 # DESCRIPTION
 This is a Vanilla JS Component to allow you to select an image (drag & drop / select file), crop it to a square and allow the user to move (mouse + touch) it before cropping; and save it to your app using api calls.
 
@@ -42,6 +45,8 @@ This function returns a base64 encoded version of the final image (after resize 
 
 # CREDITS
 I developed it while working on Troove.
+
+
 
 [![alt text](https://troove.app/favicon-192x192.png "Troove Logo")](https://troove.app/music-events/montreal-qc)
 
