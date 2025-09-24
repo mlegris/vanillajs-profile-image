@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: Aftika, sans-serif; user-select: none; overflow-x: hidden; padding: 0; margin: 0.5em; }
+        h2 { margin-left: 0 !important; margin-block-end: 0.2em !important; }
+        div#avatarContainer[target] { background-color: green; }
+        div#avatarContainer[saved] { background-color: unset; overflow: unset; }
+        div#avatarContainer {
+            min-height: 7em; background-color: lightgray; border-radius: 0.5em; overflow: hidden; background-image: url("./images/drop-image.svg"); background-repeat: no-repeat; background-position: center; background-size: 7em;
+            img#avatar { display: none; border: 2px #101820 solid; border-radius: 0.5em; width: 100%; box-sizing: border-box; }
+        }
+        button { background-color: #FBE300 !important; font-size: 1em; margin-top: 0.5em; cursor: pointer; border-radius: 0.5em; overflow: hidden; }
+    </style>
+</head>
+<body>
+<h2>Avatar</h2>
+    <div id="avatarContainer">
+        <img id="avatar" />
+    </div>
+    <button id="saveAvatar">save avatar</button>
+    <button id="changeAvatar">change avatar</button>
+</body>
+<script>
+    window.addEventListener("dragover",function(e){
+        e = e || event;
+        e.preventDefault();
+    },false);
+    window.addEventListener("drop",function(e){
+        e = e || event;
+        e.preventDefault();
+    },false);
+</script>
+<script type="module">
+    import { AvatarSelector } from "./js/me/AvatarSelector.js";
+
+    const avatarImg = document.querySelector("img#login");
+    const saveBtn = document.querySelector("button#saveAvatar");
+    const changeBtn = document.querySelector("button#changeAvatar");
+    let avatarSelector = null;
+    let userId = 1;
+
+    function initAvatar()
+    {
+        const targetEl = document.querySelector("div#avatarContainer");
+        const contOffset = targetEl.getBoundingClientRect();
+        const width = Math.round(contOffset.width);
+        avatarSelector = new AvatarSelector(targetEl, width, width);
+        avatarSelector.addEventListener(AvatarSelector.imageAvailable, imageAvailable);
+        avatarSelector.addEventListener(AvatarSelector.imageUpdated, imageUpdated);
+
+        saveBtn.addEventListener("click", saveAvatar);
+        saveBtn.disabled = true;
+
+        changeBtn.addEventListener("click", changeAvatar);
+        changeBtn.disabled = true;
+    }
+
+    function changeAvatar()
+    {
+        const imgEl = document.querySelector("div#avatarContainer img#avatar");
+        const canvasEl = document.querySelector("div#avatarContainer canvas");
+        const targetEl = document.querySelector("div#avatarContainer");
+        targetEl.removeAttribute("saved");
+        saveBtn.disabled = true;
+        saveBtn.style.display = "block";
+        changeBtn.style.display = "none";
+        imgEl.style.display = "none";
+        canvasEl.style.display = "block";
+    }
+
+    function saveAvatar()
+    {
+        // this would depend on your api calls
+        const uri = "../api/userImage";
+        const image = avatarSelector.getImageData();
+        const data = { userId: userId, image: image };
+        saveBtn.disabled = true;
+
+        // here you would call your function to save..
+        // lets pretend it worked
+        saveSuccess();
+    }
+
+    function saveSuccess(o, response)
+    {
+        const targetEl = document.querySelector("div#avatarContainer");
+        const canvasEl = document.querySelector("div#avatarContainer canvas")
+        const imgEl = document.querySelector("div#avatarContainer img");
+        const image = avatarSelector.getImageData();
+
+        saveBtn.disabled = true;
+        canvasEl.style.display = "none";
+        imgEl.style.display = "block";
+        imgEl.src = image;
+        targetEl.setAttribute("saved", "");
+        saveBtn.style.display = "none";
+        changeBtn.style.display = "block";
+        changeBtn.disabled = false;
+    }
+
+    function saveFailure(o, status, response)
+    {
+        saveBtn.disabled = false;
+    }
+
+    function imageAvailable()
+    {
+        const saveBtn = document.querySelector("button#saveAvatar");
+        saveBtn.style.display = "inline-block";
+        saveBtn.disabled = false;
+    }
+
+    function imageUpdated()
+    {
+        const saveBtn = document.querySelector("button#saveAvatar");
+        saveBtn.style.display = "inline-block";
+        saveBtn.disabled = false;
+    }
+
+    initAvatar();
+</script>
+</html>
