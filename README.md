@@ -48,7 +48,7 @@ I developed it while working on Troove.
 
 
 
-[![alt text](https://troove.app/favicon-192x192.png "Troove Logo")](https://troove.app/music-events/montreal-qc)
+[![alt text](https://troove.app/favicon-192x192.png "Troove Logo")](https://troove.app)
 
 # LICENSE
 Shield: [![CC BY-NC 4.0][cc-by-nc-shield]][cc-by-nc]
