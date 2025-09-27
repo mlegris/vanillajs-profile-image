@@ -6,8 +6,6 @@ This is a Vanilla JS Component to allow you to select an image (drag & drop / se
 # SCREENSHOTS
 https://github.com/user-attachments/assets/13c4659f-1df9-446d-9de5-1e78cc4fbcf6
 
-![alt text](https://blog.obviousleap.co/wp-content/uploads/2025/09/cover_image-1.jpg "cover image")
-
 # USAGE
 ```javascript
 
