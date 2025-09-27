@@ -19,7 +19,7 @@ const contOffset = targetEl.getBoundingClientRect();
 const width = Math.round(contOffset.width);
 
 // construct the component
-cconst avatarSelector = new AvatarSelector(targetEl, width, width);
+const avatarSelector = new AvatarSelector(targetEl, width, width);
 
 // listen to events. 
 avatarSelector.addEventListener(AvatarSelector.imageAvailable, imageAvailable);
