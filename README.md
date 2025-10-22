@@ -2,7 +2,7 @@
 This is a Vanilla JS Component to allow you to select an image (drag & drop / select file), crop it to a square and allow the user to move (mouse + touch) it before cropping; and save it to your app using api calls.
 
 
-[You can see it in action here.](https://troove.app/avatarTut/) Please note that it manipulates images in javascript and if you upload big images it can be slow.
+[You can see it in action here.](https://blog.obviousleap.co/demos/avatarTut/) Please note that it manipulates images in javascript and if you upload big images it can be slow.
 
 # SCREENSHOTS
 https://github.com/user-attachments/assets/13c4659f-1df9-446d-9de5-1e78cc4fbcf6
